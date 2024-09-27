@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentários</title>
+
+    <link rel="stylesheet" href="./src/css/estilo.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body>
+
+    <header>
+        <img id="logo" src="./src/imagens/batman-logo.webp" />
+
+        <nav>
+            <ul>
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+
+                <a href="./contato.html">
+                    <li>Contato</li>
+                </a>
+
+                <a href="./fotos.html">
+                    <li>Fotos</li>
+                </a>
+
+                <a href="./comentarios.html">
+                    <li>Comentários</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="titulo-comentarios">Comentários sobre The Batman (2022)</h1>
+
+        <div class="comment-form">
+            <h2>Deixe seu comentário:</h2>
+            <input type="text" id="username" placeholder="Seu nome">
+            <textarea id="comment" placeholder="Escreva seu comentário aqui..."></textarea>
+            <button onclick="addComment()">Enviar comentário</button>
+        </div>
+
+        <div class="comments-section" id="comments-section">
+            <h2>Comentários:</h2>
+
+            <!-- Comentários existentes -->
+            <div class="comment">
+                <h3>João Silva</h3>
+                <time>25/09/2024</time>
+                <p>Adorei o filme! A atuação do Robert Pattinson foi incrível!</p>
+            </div>
+            <div class="comment">
+                <h3>Ana Costa</h3>
+                <time>26/09/2024</time>
+                <p>Gostei muito da fotografia e do clima sombrio. Um dos melhores filmes do Batman!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addComment() {
+            const username = document.getElementById('username').value;
+            const comment = document.getElementById('comment').value;
+
+            if (username && comment) {
+                const commentsSection = document.getElementById('comments-section');
+
+                // Criar novo elemento de comentário
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+
+                const commentAuthor = document.createElement('h3');
+                commentAuthor.textContent = username;
+
+                const commentDate = document.createElement('time');
+                commentDate.textContent = new Date().toLocaleDateString('pt-BR');
+
+                const commentText = document.createElement('p');
+                commentText.textContent = comment;
+
+                // Adicionar elementos ao novo comentário
+                newComment.appendChild(commentAuthor);
+                newComment.appendChild(commentDate);
+                newComment.appendChild(commentText);
+
+                // Adicionar o novo comentário à seção de comentários
+                commentsSection.appendChild(newComment);
+
+                // Limpar os campos
+                document.getElementById('username').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('Por favor, preencha seu nome e comentário.');
+            }
+        }
+    </script>
+
+    <footer>
+        <img style="object-fit: contain;" id="logo" src="./src/imagens/batman-logo.webp" />
+        <span>Todos os direitos reservados ©</span>
+        <span>Desenvolvido por Tauan Carvalho Serpa.</span>
+
+        <nav class="footer-navegacao">
+            <ul class="footer-lista">
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+
+                <a href="./contato.html">
+                    <li>Contato</li>
+                </a>
+
+                <a href="./fotos.html">
+                    <li>Fotos</li>
+                </a>
+
+                <a href="./comentarios.html">
+                    <li>Comentários</li>
+                </a>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
